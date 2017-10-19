@@ -24,7 +24,7 @@
             <a href="http://letyagin.com" hover=#0040ff>letyagin</a>
         </p>
     </div>
-    <h3>Умножение переменных</h3>
+    <!-- <h3>Умножение переменных</h3>
     <script>
         var a = prompt();
         var b = prompt();
@@ -42,14 +42,61 @@
     <script>
         var a = +prompt('введите число 1:');
         var b = +prompt('Введите число 2:');
-        if (a > b) {
-            var max = a;
+        var max = a
+        if (a < b) {
+            max = b;
         }
-        else {
-            var max = a;
-        }    
-        alert('Максимальное число: '+max);
+        alert('Максимальное число: ' + max);
     </script>
+    <h2>Конвертер валют</h2>
+    <script>
+        var usd = +prompt('Введите курс доллара в рублях');
+        var eur = +prompt('Введите курс евро в рублях');
+        var rub = +prompt('сколько рублей вы хотите перевести?');
+        alert('Сумма в долларах: ' + (rub / usd).toFixed(2) + '\nСумма в евро: ' + (rub / eur).toFixed(2));
+    </script>
+    <h3>игра в загадки</h3>
+    <script>
+        var total = 0;
+        var ans1 = prompt('Между ног болтается на х начинается');
+        if (ans1 == 'хвост') {
+            total += 1
+            alert('Верный ответ! отлично!');
+        } else {
+            alert('Увы, неверно((');
+        }
+        var ans2 = prompt('Сафрон гей? да/нет');
+        if (ans2 == 'да') {
+            total += 1
+            alert('Верный ответ! отлично!');
+        } else {
+            alert('Увы, неверно((');
+        }
+        var ans3 = prompt('Ты гей? (да/нет)');
+        if (ans3 == 'нет') {
+            total += 1
+            alert('Верный ответ! отлично!');
+        } else {
+            alert('Увы, неверно((');
+        }
+        var ans4 = +prompt('сколько будет 2+2?');
+        if (ans4 == 4) {
+            total += 1;
+            alert('Верный ответ! отлично!');
+        } else {
+            alert('Увы, неверно((');
+        }
+        alert('Количество верных ответов: ' + total)
+    </script>
+    <h3>Уравнение</h3>
+    <script>
+        var a = 5;
+        var b = -1;
+        var c = 4;
+        var x = prompt('Введите значение Х:');
+        var y = a * (x * x) + (b * x) + c;
+        alert('при х= формула "y=(2)*x^2+(-1)*x+(4)", равна ' + y);
+    </script> -->
     <h3>New Table</h3>
     <table>
         <tr>
@@ -69,7 +116,6 @@
         //alert('Hello world');
         var b = a + 3;
         alert(a + b);
-
     </script>
 </body>
 
