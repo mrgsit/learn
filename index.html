@@ -112,10 +112,24 @@
     </table>
     <!-- Текст на Javascript -->
     <script>
-        var a = 1;
-        //alert('Hello world');
-        var b = a + 3;
-        alert(a + b);
+        var compnum = Math.round(Math.random() * 100);
+        for (var i = 0; i < 10; i++) {
+            var usernum = +prompt('Round ' + (i + 1) + '\nВведите число');
+            if (usernum > compnum) {
+                alert('Число больше загаданного');
+            } else if (usernum < compnum) {
+                alert('Число меньше загаданного');
+            } else if (usernum == compnum) {
+                alert('Верный ответ!');
+                alert('Вы угадали с '+i+' попытки.')
+                break;
+            } else {
+                alert('Ввод должен быть числом от 1 до 100!');
+            }
+        }
+        if (i==10) {
+        alert ('Игра окончена, вы проиграли.');
+        }
     </script>
 </body>
 
