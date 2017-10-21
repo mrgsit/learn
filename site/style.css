@@ -1,0 +1,108 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #f7f7f7;
+    padding-bottom: 60px;
+}
+
+header {
+    background: SkyBlue;
+    padding: 20px;
+}
+
+header nav ul {
+    list-style: none;
+    text-align: center;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin: 0px 20px;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+header a:hover {
+    color: darkslategrey;
+}
+
+main {
+    padding: 30px 60px 0 60px;
+}
+
+main h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+main .left {
+    float: left;
+    width: 25%;
+    box-sizing: border-box;
+    padding-right: 40px;
+}
+
+main .left img {
+    max-width: 100%;
+    border-radius: 10%;
+}
+
+main .right {
+    display: block;
+    float: left;
+    width: 75%;
+    min-width: 50px;
+    box-sizing: border-box;
+}
+
+main:after {
+    display: block;
+    content: '';
+    clear:both;
+}
+main .text {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+}
+main .text p {
+    text-indent: 20px;
+    margin-bottom: 10px;
+}
+main .text ul {
+    list-style: none;
+    padding-top: 20px;
+}
+main .text ul li {
+    display: inline-block;
+    margin-right: 30px;
+}
+main .text a {
+    color: #50b2cf;
+    text-decoration: none;
+}
+main .text a:hover {
+    color: darkslategrey;    
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background: SkyBlue;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+}
+
+footer a {
+    color: darkslategrey;
+}
