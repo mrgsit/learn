@@ -112,25 +112,50 @@
     </table>
     <!-- Текст на Javascript -->
     <script>
-        var compnum = Math.round(Math.random() * 100);
+        var compnum = Math.round(Math.random() * 100),
+            gameover = false;
+
         for (var i = 0; i < 10; i++) {
-            var usernum = +prompt('Round ' + (i + 1) + '\nВведите число');
-            if (usernum > compnum) {
-                alert('Число больше загаданного');
-            } else if (usernum < compnum) {
-                alert('Число меньше загаданного');
-            } else if (usernum == compnum) {
-                alert('Верный ответ!');
-                alert('Вы угадали с '+i+' попытки.')
+            for (var j = 0; j < 2; j++) {
+                var input = prompt('Раунд ' + (i + 1) + '\nИгрок ' + (j + 1) +
+                    '\nВведите число\nВведите end для окончания игры');
+                if (input == 'end') {
+                    gameover = true;
+                    break;
+                }
+                var usernum = +input;
+
+                if (usernum > compnum) {
+                    alert('Число больше загаданного');
+                } else if (usernum < compnum) {
+                    alert('Число меньше загаданного');
+                } else if (usernum == compnum) {
+                    alert('Верный ответ!');
+                    alert('Выиграл игрок ' + (j + 1) + '!\nОн угадал число с ' + (i + 1) + ' попытки.');
+                    gameover = true;
+                    break;
+                } else {
+                    alert('Ввод должен быть числом от 1 до 100!');
+                }
+            }
+            if (gameover) {
                 break;
-            } else {
-                alert('Ввод должен быть числом от 1 до 100!');
             }
         }
-        if (i==10) {
-        alert ('Игра окончена, вы проиграли.');
+        if (i == 10) {
+            alert('Игра окончена, Компьютер загадал число ' + compnum);
+
         }
     </script>
+    <!-- <script>
+        var summ = +prompt('Введите сумму вклада'),
+            percent = +prompt('Введите процент годовых');
+        for (var i = 0; i < 5; i++) {
+            summ += summ * percent / 100;
+            alert('Год ' + (i + 1) + '\nСумма: ' + summ.toFixed(2));
+        }
+        }
+    </script> -->
 </body>
 
 </html>

@@ -2,6 +2,13 @@
         "version": "0.2.0",
         "configurations": [
             {
+                "type": "chrome",
+                "request": "attach",
+                "name": "Attach to Chrome",
+                "port": 9222,
+                "webRoot": "${workspaceRoot}"
+            },
+            {
                 "name": "Python",
                 "type": "python",
                 "request": "launch",
@@ -21,7 +28,7 @@
                 "name": "Bash-Debug (select script from list of sh files)",
                 "type": "bashdb",
                 "request": "launch",
-                "scriptPath": "${command.SelectScriptName}",
+                "scriptPath": "${command:SelectScriptName}",
                 "commandLineArguments": "",
                 "windows": {
                     "bashPath": "C:\\Windows\\System32\\bash.exe"
