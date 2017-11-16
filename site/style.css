@@ -15,11 +15,14 @@ header {
 }
 
 header nav ul {
+    display: flex;
     list-style: none;
     text-align: center;
 }
 
 header nav ul li {
+    flex-basis: auto;
+    flex-grow: 1;
     display: inline-block;
     margin: 0px 20px;
 }
@@ -34,7 +37,7 @@ header a:hover {
 }
 
 main {
-    padding: 30px 60px 0 60px;
+    padding: 30px 50px 0 50px;
 }
 
 main h1 {
@@ -44,20 +47,22 @@ main h1 {
 
 main .left {
     float: left;
-    width: 25%;
+    width: 28%;
     box-sizing: border-box;
-    padding-right: 40px;
+    padding-right: 30px;
 }
 
 main .left img {
     max-width: 100%;
-    border-radius: 10%;
+    border-radius: 15%;
 }
 
 main .right {
-    display: block;
-    float: left;
-    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 72%;
     min-width: 50px;
     box-sizing: border-box;
 }
@@ -65,31 +70,42 @@ main .right {
 main:after {
     display: block;
     content: '';
-    clear:both;
+    clear: both;
 }
+
 main .text {
-    background-color: #ffffff;
-    padding: 20px;
+    padding: 15px;
     border-radius: 10px;
+    width: 800px;
+    background-color: #e7e6e6;
 }
+
 main .text p {
-    text-indent: 20px;
+    text-indent: 10px;
     margin-bottom: 10px;
 }
+
 main .text ul {
+    display: flex;
     list-style: none;
-    padding-top: 20px;
+    padding-top: 30px;
+    text-align: center;
 }
+
 main .text ul li {
+    flex-basis: auto;
+    flex-grow: 1;
     display: inline-block;
-    margin-right: 30px;
+    margin-right: 10px;
 }
+
 main .text a {
     color: #50b2cf;
     text-decoration: none;
 }
+
 main .text a:hover {
-    color: darkslategrey;    
+    color: darkslategrey;
 }
 
 footer {
@@ -105,4 +121,29 @@ footer {
 
 footer a {
     color: darkslategrey;
+}
+/* CSS К калькулятору */
+
+.form-row {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+.form-row label {
+    display: inline-block;
+    width: 90px;
+}
+.form-row input {
+    padding: 4px 5px;
+    font-size: 16px;
+}
+.form-row button {
+    font-size: 30px;
+    line-height: 25px;
+    /* padding: 15px 25px; */
+    width: 60px;
+    height: 50px;
+    margin-right: 17px;
+}
+#status {
+    margin-bottom: 10px;
 }

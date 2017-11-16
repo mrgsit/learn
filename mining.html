@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mining profit</title>
+</head>
+
+<body>
+    <script>
+        var day = 0,
+            hour = 0,
+            speed = 1500,
+            money = 0,
+            coef = 19672.13,
+            profit = 0;
+        while (day < 365) {
+            do {
+                money += speed / coef;
+                hour++;
+                if (hour == 24) {
+                    day++;
+                    hour = 0;
+                    if (day % 18 == 0) {
+                        coef *= 1.1;
+                    }
+                }
+            } while (money < 1.5);
+            speed += 10;
+            money -= 1.5;
+            profit = (speed / coef * 24 - speed * 0.00035)*30;
+            if (day % 10 == 0 && hour < 5) {
+                document.write('Время в работе: ' + day + ' Дней, ' + hour + ' часов.' + '\nДенег на балансе: ' + money
+                    .toFixed(3) + '\nТекущая скорость: ' + speed + '\nТекущая сложность:' + coef +
+                    'Прибыль в месяц: ' + profit + '<br>');
+            }
+        }
+    </script>
+</body>
+
+</html>

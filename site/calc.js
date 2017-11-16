@@ -1,33 +1,55 @@
-function message(text) {
-    alert('you have new massage!' + text);
-}
-message('you sic!');
-
-// функция определена сама по себе, видна всему документу. можно использовать и сверху и снизу её.
-var c = summ(34, 324);
-alert(c);
-function summ(a, b) {
-    return a + b;
-}
-
-// функция определена через переменную, использование возможно только после определения переменной
-var summ = function (a, b) {
-    return a+b;
-}
-alert(summ(343, 3432));
-
-// 4! = 1*2*3*4 = 24
-// 5! = 1*2*3*4*5 = 4!*5 = 120
-
-// factorial(5)
-// i=5, n=5
-// i=4, n=5*4
-// i=3, n=5*4*3
-alert(factorial(5));
-function factorial(i) {
-    var n = 1
-    while (i > 1) {
-        n *= i--;
+function showResult(fn) {
+    var input1 = document.getElementById('num-1'),
+        input2 = document.getElementById('num-2'),
+        status = document.getElementById('status');
+    var a = +input1.value,
+        b = +input2.value;
+    if (isNaN(a)) {
+        input1.value = '';
+        status.innerHTML = 'Неверное значение в поле "Число 1"';
+        return;
     }
-    return n;
+    if (isNaN(b)) {
+        input2.value = '';
+        status.innerHTML = 'Неверное значение в поле "Число 2"';
+        
+        return;
+
+    }
+    var result = fn(a, b);
+
+    if (typeof result != 'number') {
+        status.innerHTML = result;
+        return;
+    }
+    document.getElementById('result').value = result;
+}
+
+function summ() {
+    showResult(function (a, b) {
+        return a + b;
+    })
+}
+
+
+
+function distract() {
+    showResult(function (a, b) {
+        return a - b;
+    })
+}
+
+function multiply() {
+    showResult(function (a, b) {
+        return a * b;
+    })
+}
+
+function divide() {
+    showResult(function (a, b) {
+        if (b == 0) {
+            return 'Ошибка, на 0 делить нельзя!'
+        }
+        return a / b;
+    })
 }
