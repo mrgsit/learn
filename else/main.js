@@ -6,13 +6,9 @@ var day = 0,
 while (day < 180) {
     do {
         money += speed / coef;
-        hour++;
-        if (hour == 24) {
-            day++;
-            hour = 0;
-            if (day % 18 == 0) {
-                coef *= 1.1;
-            }
+        day++;
+        if (day % 18 == 0) {
+            coef *= 1.1;
         }
     } while (money < 1.5);
     speed += 10;

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mining profit</title>
+</head>
+
+<body>
+    <script>
+        // указываем переменные:
+        // получаем актуальный курс битка с оф сайта
+        var bitcoinrate = +prompt('Введите курс BTC или оставьте поле пустым для текущего курса.');
+        if (bitcoinrate == 0) {
+            var bitcoinrate = new XMLHttpRequest();
+            bitcoinrate.open("GET", "https://blockchain.info/ru/ticker", false);
+            bitcoinrate.send();
+            bitcoinrate = JSON.parse(bitcoinrate.responseText);
+            bitcoinrate = bitcoinrate.USD.last;
+            document.write('Курс BTC на данный момент:' + bitcoinrate + '<br>');
+        } else {
+            document.write('Вы ввели курс BTC:' + bitcoinrate + '<br>');
+        }
+        var day = 0,
+            // купленный хэшрейт
+            power = +prompt('Введите купленную мощность:'),
+            // количество битка на кошельке
+            bitvalue = 0,
+            // сложность вычислений
+            coef = 5239851,
+            // прибыль в месяц
+            profit = 0,
+            // стоимость покупки хэшрейта в битках
+            powercost = 1.5 / bitcoinrate,
+            // плата за обслуживание
+            fee = (power * 0.00035 / bitcoinrate);
+        // пишем функцию, которая будет вычислять 
+        while (day < 365) {
+            day++;
+            bitvalue += power / coef - fee;
+            power += Math.floor(bitvalue / powercost) * 10;
+            bitvalue = bitvalue % powercost;
+            if (day % 20 == 0) {
+                coef *= 1.2;
+            }
+            profit = (power / coef - fee) * 30;
+            if (day % 10 == 0) {
+                document.write('Время в работе: ' + day + ' Дней, ' + '\nДенег на балансе: ' + '\nТекущий хэшрейт: ' +
+                    power + '\nТекущая сложность: ' + coef + ' Прибыль в месяц(BTC): ' + profit.toFixed(6) +
+                    ' Прибыль в месяц(USD): ' + (profit * bitcoinrate).toFixed(2) + '<br>');
+            }
+        }
+    </script>
+</body>
+
+</html>
