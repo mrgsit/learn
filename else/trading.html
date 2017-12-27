@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mining profit</title>
+</head>
+
+<body>
+    <script>
+        // указываем переменные:
+        // получаем актуальный курс с полыни
+        var rates = new XMLHttpRequest();
+        rates.open("GET", "https://poloniex.com/public?command=returnTicker", false);
+        rates.send();
+        rates = JSON.parse(rates.responseText);
+        btc_last = rates.USDT_BTC.last;
+        zec_last = rates.USDT_ZEC.last;
+        eth_last = rates.USDT_ETH.last;
+        bch_last = rates.USDT_BCH.last;
+        ltc_last = rates.USDT_LTC.last;
+        dash_last = rates.USDT_DASH.last;
+        xrp_last = rates.USDT_XRP.last;
+
+        document.write( btc_last + '<br>');
+        document.write( zec_last + '<br>');
+        document.write( eth_last + '<br>');
+        document.write( bch_last + '<br>');
+        document.write( ltc_last + '<br>');
+        document.write( dash_last + '<br>');
+        document.write( xrp_last + '<br>');
+
+    </script>
+</body>
+
+</html>
